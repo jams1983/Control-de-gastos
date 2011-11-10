@@ -1,0 +1,31 @@
+<%= form_for([@service, @expense]) do |f| %>
+  <% if @expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+      <% @expense.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br />
+    <%= f.select :month,  options_for_select([["","0"],["January","1"],["February","2"],["March","3"],["April","4"],["May","5"],["June","6"],["July","7"],["August","8"],["September","9"],["October","10"],["November","11"],["December","12"]],@expense.month) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

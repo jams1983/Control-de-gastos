@@ -1,0 +1,36 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+h1,h2 {
+	font-family: Tahoma, "Times New Roman",Times, serif;
+	font-size:24px;
+	text-align:left;
+}
+div{
+	font-family: Tahoma, "Times New Roman",Times, serif;
+	font-size:12px;
+	text-align:left;
+	font-weight:normal;
+}
+td{
+	font-family: Tahoma, "Times New Roman",Times, serif;
+	font-size:12px;
+	text-align:left;
+	font-weight:normal;
+}
+tr:nth-child(even) {background: #DADADA }
+tr:nth-child(odd) {background: #FFF}
+
+th{
+	font-family: Tahoma, "Times New Roman",Times, serif;
+	font-size:12px;
+}
+a{
+	color:#5882FA;
+	
+}

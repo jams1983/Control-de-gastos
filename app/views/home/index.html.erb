@@ -1,0 +1,28 @@
+<h1>Expenses Control - Home</h1>
+<p></p>
+<%if user_signed_in?%>
+<table width="100%">
+	<tr>
+		<th style="background: #A4A4A4">User</th>
+		<th style="background: #A4A4A4">Service</th>
+		<th style="background: #A4A4A4">Value</th>
+		<th style="background: #A4A4A4">Month</th>
+		<th style="background: #A4A4A4">Year</th>
+
+
+
+	</tr>
+	<% @expenses.each do |expense| %>
+    	<tr>
+	<td><%= expense.service.user.email %></td>
+				<td><%= expense.service.name %></td>
+				<td><%= expense.value %></td>			<td><%=DateTime.new(2000,expense.month,1).strftime("%B") %></td>
+			<td><%= expense.year %></td>
+			
+
+
+		
+		
+	<% end %>
+</table>
+<%end%>

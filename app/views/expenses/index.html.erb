@@ -1,0 +1,53 @@
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+      chart: { 
+	    renderTo: 'expenses_chart' 
+	  },
+      title: {
+	    text: 'Expenses service'
+	  },
+      xAxis: {
+	    categories: <%=raw(@dates.to_json) %>,
+	    type: 'date'
+	  },
+      yAxis: {
+		
+	    title: { text: 'Values'}
+	  },
+      series: [{
+	    data: <%= @expenses.map(&:value).to_json %>
+      }]
+    });
+  });
+</script>
+
+
+<h1>Expenses - <%=@service.name%></h1>
+<div><%=link_to "New", new_service_expense_path(@service)%></div>
+
+<div id="expenses_chart" style="width: 100%; height: 250px;"> </div>
+<table width="100%">
+	<tr>
+		<th style="background: #A4A4A4">Month</th>
+		<th style="background: #A4A4A4">Year</th>
+		<th style="background: #A4A4A4">Value</th>
+		<th style="background: #A4A4A4">Created at</th>
+		<th style="background: #A4A4A4">Updated at</th>
+		<th colspan="2" style="background: #A4A4A4">Options</th>
+	</tr>
+	<% @expenses.each do |expense| %>
+    	<tr>
+			
+			<td><%=DateTime.new(2000,expense.month,1).strftime("%B") %></td>
+			<td><%= expense.year %></td>
+			<td><%= expense.value %></td>
+			<td><%= expense.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+			<td><%= expense.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+			<td><center><%=link_to "Edit", edit_service_expense_path(@service,expense)%> </center></td>
+			<td><center><%= link_to 'Delete', [@service,expense], confirm: 'Are you sure?', method: :delete %></center></td>
+		
+		
+	<% end %>
+</table>
+<%#will_paginate @expenses%>

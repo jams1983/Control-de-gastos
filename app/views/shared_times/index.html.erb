@@ -1,0 +1,23 @@
+<h1>Shared Times</h1>
+<div><%=link_to "New", new_shared_time_path%></div>
+<table width="100%">
+	<tr>
+		<th style="background: #A4A4A4">Month</th>
+		<th style="background: #A4A4A4">Year</th>
+		<th style="background: #A4A4A4">Created at</th>
+		<th style="background: #A4A4A4">Updated at</th>
+		<th colspan="2" style="background: #A4A4A4">Options</th>
+	</tr>
+	<% @shared_times.each do |shared_time| %>
+    	<tr>
+			<td><%=DateTime.new(2000,shared_time.month,1).strftime("%B")  %></td>
+			<td><%= shared_time.year %></td>
+			<td><%= shared_time.created_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+			<td><%= shared_time.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></td>
+			<td><center><%=link_to "Edit", edit_shared_time_path(shared_time)%></center> </td>
+			<td></td>
+			 
+			
+		</tr>
+	<% end %>
+</table>
