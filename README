@@ -1,7 +1,12 @@
 == Welcome to Rails
 
-Rails is a web-application framework that includes everything needed to create
-database-backed web applications according to the Model-View-Control pattern.
+Rails is a web-application framework that includes everything needed to database-backed web applications according to the Model-View-Control pattern.
+
+fsdalkfsdajklfdsa
+fsdaoifjdsaklfasd
+
+fsadijfdsaklfdsa
+
 
 This pattern splits the view (also called the presentation) into "dumb"
 templates that are primarily responsible for inserting pre-built data in between
@@ -27,7 +32,7 @@ link:files/vendor/rails/actionpack/README.html.
 
 
 == Getting Started
-
+fdsafsad
 1. At the command prompt, create a new Rails application:
        <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
 
@@ -48,7 +53,7 @@ the following resources handy:
 
 Sometimes your application goes wrong. Fortunately there are a lot of tools that
 will help you debug it and get it back on the rails.
-
+fsdfdsf
 First area to check is the application log files. Have "tail -f" commands
 running on the server.log and development.log. Rails will automatically display
 debugging and runtime information to these files. Debugging info will also be
@@ -76,7 +81,7 @@ several books available online as well:
 
 * Programming Ruby: http://www.ruby-doc.org/docs/ProgrammingRuby/ (Pickaxe)
 * Learn to Program: http://pine.fm/LearnToProgram/ (a beginners guide)
-
+fdsfsdf
 These two books will bring you up to speed on the Ruby language and also on
 programming in general.
 
@@ -123,7 +128,7 @@ The console is a Ruby shell, which allows you to interact with your
 application's domain model. Here you'll have all parts of the application
 configured, just like it is when the application is running. You can inspect
 domain models, change values, and save to the database. Starting the script
-without arguments will launch it in the development environment.
+without arguments will launch fdsfdasfit in the development environment.
 
 To start the console, run <tt>rails console</tt> from the application
 directory.
@@ -179,7 +184,7 @@ The default directory structure of a generated Ruby on Rails application:
   |-- script
   |-- test
   |   |-- fixtures
-  |   |-- functional
+  |   |-- functionalfdsafasdfsa
   |   |-- integration
   |   |-- performance
   |   `-- unit
@@ -253,7 +258,7 @@ script
 test
   Unit and functional tests along with fixtures. When using the rails generate
   command, template test files will be generated for you and placed in this
-  directory.
+  directory.fdsafsad
 
 vendor
   External libraries that the application depends on. Also includes the plugins
