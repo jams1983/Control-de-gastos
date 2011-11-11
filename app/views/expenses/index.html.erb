@@ -9,14 +9,14 @@
 	  },
       xAxis: {
 	    categories: <%=raw(@dates.to_json) %>,
-	    type: 'date'
+	    type: 'date',labels: { style: { color: '#000', font: '9px Trebuchet MS, Verdana, sans-serif' } }
 	  },
       yAxis: {
 		
 	    title: { text: 'Values'}
 	  },
       series: [{
-	    data: <%= @expenses.map(&:value).to_json %>
+	    data: <%= @vals.to_json %>
       }]
     });
   });

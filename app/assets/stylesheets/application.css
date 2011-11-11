@@ -10,6 +10,7 @@ h1,h2 {
 	font-family: Tahoma, "Times New Roman",Times, serif;
 	font-size:24px;
 	text-align:left;
+	color:#414141;
 }
 div{
 	font-family: Tahoma, "Times New Roman",Times, serif;
@@ -32,5 +33,10 @@ th{
 }
 a{
 	color:#5882FA;
+	
+}
+
+.rounded-corners{
+	border-radius: 5px;
 	
 }
