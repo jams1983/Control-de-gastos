@@ -6,29 +6,15 @@ class ExpensesController < ApplicationController
     first_expense=@expenses.first
     last_expense=@expenses.last
     
-    #obtiene los meses entre los años min y max de los expenses
-    num_meses=Array.new
+    dates=Array.new
     if @expenses.size>0
-      if first_expense.year==last_expense.year
-        num_meses=(first_expense.month..last_expense.month).collect{|x| DateTime.new(first_expense.year,x,1)}
-      else
-        if last_expense.year-first_expense.year==1
-          num_meses=(first_expense.month..12).to_a.collect{|x| DateTime.new(first_expense.year,x,1)}
-          num_meses.concat((1..last_expense.month).to_a.collect{|x| DateTime.new(last_expense.year,x,1)})
-        else
-          num_meses=(first_expense.month..12).to_a.collect{|x| DateTime.new(first_expense.year,x,1)}
-          years=(first_expense.year+1...last_expense.year).to_a
-          years.each do |year|
-            num_meses.concat((1..12).to_a.collect{|x| DateTime.new(year,x,1)})
-          end
-          num_meses.concat((1..last_expense.month).to_a.collect{|x| DateTime.new(last_expense.year,x,1)})
-        
-        end
-      end
+      #obtiene los meses entre los años min y max de los expenses
+      dates=(Date.new(first_expense.year,first_expense.month)..Date.new(last_expense.year,last_expense.month)).select {|d| d.day == 1}
+
       #obtiene los values de cada uno de los meses antes obtenidos, sino tiene value se le asigna nil
       @vals=Array.new
-      num_meses.each do |nm|
-        exp = Expense.where(:service_id => @service.id).where(:year =>nm.year).where(:month =>nm.month)
+      dates.each do |date|
+        exp = Expense.where(:service_id => @service.id).where(:year =>date.year).where(:month =>date.month)
         if exp.size==0
           @vals.push(nil)
         else
@@ -39,8 +25,8 @@ class ExpensesController < ApplicationController
 
     #se obtienen los meses con formato mes/año para pasarlos a la vista
     @dates=Array.new
-    num_meses.each do |nm|
-      d=nm.strftime("%b/%y") 
+    dates.each do |date|
+      d=date.strftime("%b/%y") 
       @dates.push(d)
     end
 
