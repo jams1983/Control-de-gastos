@@ -6,7 +6,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-$(function () {
-  $('#book_author_tokens').tokenInput('/authors.json', { crossDomain: false });
-});
+= require_tree .
