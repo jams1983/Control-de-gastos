@@ -12,53 +12,59 @@
 <%= csrf_meta_tag %>
 <script type="text/javascript">
   $(function () {
-  $('#shared_time_shared_time_user_tokens').tokenInput('/users.json', { crossDomain: false	,
-	    prePopulate: $('#shared_time_shared_time_user_tokens').data('pre'),
-	theme: 'facebook'
-	 });
+  $('#shared_time_shared_time_user_tokens').tokenInput('/users.json', { crossDomain: false  ,
+      prePopulate: $('#shared_time_shared_time_user_tokens').data('pre'),
+  theme: 'facebook'
+   });
 });
 </script>
 
 </head>
 <body bgcolor="#414141">
   <table width="75%" align="center" style="background:#ffffff" class="rounded-corners" height="600px">
-	<tr>
-		<th valign="top">
-	<div id="user_nav"  >
-	<% if user_signed_in? %>
-	   
-				Signed in as <%= current_user.email %>. Not you?
-			    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br>
+  <tr>
+    <th valign="top">
+  <div id="user_nav"  >
+  <% if user_signed_in? %>
+     
+        Signed in as <%= current_user.email %>. Not you?
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br>
 
-			
-				<%= link_to "Home", home_index_path %>
-				<%= link_to "Services", services_path %>
-				<%= link_to "Shared Times", shared_times_path %>
+      
+        <%= link_to "Home", home_index_path %>
+        <%= link_to "Services", services_path %>
+        <%= link_to "Shared Times", shared_times_path %>
 
-		<% else %>
-		  	
-	    <%= link_to "Sign up", new_user_registration_path %> or
-	    <%= link_to "Sign in", new_user_session_path %>
-				
+    <% else %>
+        
+      <%= link_to "Sign up", new_user_registration_path %> or
+      <%= link_to "Sign in", new_user_session_path %>
+        
 
-	  <% end %>
-  	</div>
+    <% end %>
+    </div>
 
 <table width="90%" align="center" style="background:#ffffff">
-	
-	  
-	
+  
+    
+  
   
   <tr>
-	<th>
-		<%= yield %>
-	</th>
+  <th>
+    <%= yield %>
+  </th>
   </tr>
 </table>
 </th>
 </tr>
 </table>
-
-
+  <script type='text/javascript'>
+    var _sm_id = 'c77d3aa5-f0d9-4dd6-9c75-da1e8b5b85c9';
+    (function() {
+        var sm = document.createElement('script'); sm.type = 'text/javascript'; sm.async = true;
+        sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'smartcontact.r13.railsrumble.com/assets/smart_contact.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sm, s);
+    })();
+  </script>
 </body>
 </html>

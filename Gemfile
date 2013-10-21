@@ -7,7 +7,7 @@ gem 'rails', '3.1.1'
 
 group :production do
   gem 'execjs'
-  gem 'therubyracer'
+  # gem 'therubyracer'
 end
 
 # Gems used only for assets and not required
