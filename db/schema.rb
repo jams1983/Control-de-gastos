@@ -9,11 +9,14 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108194021) do
+ActiveRecord::Schema.define(version: 20111108194021) do
 
-  create_table "expenses", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "expenses", force: true do |t|
     t.float    "value"
     t.integer  "service_id"
     t.datetime "created_at"
@@ -22,28 +25,28 @@ ActiveRecord::Schema.define(:version => 20111108194021) do
     t.integer  "month"
   end
 
-  add_index "expenses", ["service_id"], :name => "index_expenses_on_service_id"
+  add_index "expenses", ["service_id"], name: "index_expenses_on_service_id", using: :btree
 
-  create_table "services", :force => true do |t|
+  create_table "services", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "services", ["user_id"], :name => "index_services_on_user_id"
+  add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
-  create_table "shared_time_users", :force => true do |t|
+  create_table "shared_time_users", force: true do |t|
     t.integer  "shared_time_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "shared_time_users", ["shared_time_id"], :name => "index_shared_time_users_on_shared_time_id"
-  add_index "shared_time_users", ["user_id"], :name => "index_shared_time_users_on_user_id"
+  add_index "shared_time_users", ["shared_time_id"], name: "index_shared_time_users_on_shared_time_id", using: :btree
+  add_index "shared_time_users", ["user_id"], name: "index_shared_time_users_on_user_id", using: :btree
 
-  create_table "shared_times", :force => true do |t|
+  create_table "shared_times", force: true do |t|
     t.integer  "month"
     t.integer  "year"
     t.integer  "user_id"
@@ -51,15 +54,15 @@ ActiveRecord::Schema.define(:version => 20111108194021) do
     t.datetime "updated_at"
   end
 
-  add_index "shared_times", ["user_id"], :name => "index_shared_times_on_user_id"
+  add_index "shared_times", ["user_id"], name: "index_shared_times_on_user_id", using: :btree
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20111108194021) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
